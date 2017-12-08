@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/IdeaWorkSapce.iml" filepath="$PROJECT_DIR$/IdeaWorkSapce.iml" />
+      <module fileurl="file://$PROJECT_DIR$//Struts2.iml" filepath="$PROJECT_DIR$//Struts2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Struts2Demo/Struts2Demo.iml" filepath="$PROJECT_DIR$/Struts2Demo/Struts2Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StrutsDemo.iml" filepath="$PROJECT_DIR$/StrutsDemo.iml" />
+    </modules>
+  </component>
+</project>
