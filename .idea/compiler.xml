@@ -6,12 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="IdeaWorkSapce" />
+        <module name="SpringDemo" />
         <module name="Struts2Demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="IdeaWorkSapce" target="1.5" />
+      <module name="SpringDemo" target="1.5" />
       <module name="Struts2" target="1.5" />
       <module name="Struts2Demo" target="1.5" />
     </bytecodeTargetLevel>
