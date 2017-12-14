@@ -9,7 +9,7 @@ import com.ruiclear.dao.User;
 public class StrutsHelloWorld {
     private User user;
     public String excute(){
-        System.out.println("Hello World...hahhahalalllanidaye"+user);
+        System.out.println("Hello World.."+user);
         return "success";
     }
 
