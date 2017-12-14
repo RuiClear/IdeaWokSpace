@@ -1,15 +1,19 @@
 package com.ruiclear.springdemo;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 /**
  * Created by RuiClear on 2017/12/10.
  */
 public class Test {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-        HelloWorld helloWorld = (HelloWorld)context.getBean("helloWorld");
-        helloWorld.say();
+//        ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+//        HelloWorld helloWorld = (HelloWorld)context.getBean("helloWorld");
+       // System.out.println(helloWorld);
+        //helloWorld.say();
+//         User user = (User)context.getBean("user");
+//        System.out.println(user);
+//        ((ClassPathXmlApplicationContext)context).close();
+
+ Server server = (Server) new ServerPorxy(new ServerImpl2()).getInstacne();
+ server.say();
     }
 }
