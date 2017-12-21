@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+    <bean id="helloWorld" class="com.ruiclear.springdemo.xml.HelloWorld"></bean>
+    <bean id="loggingAspectJ" class="com.ruiclear.springdemo.xml.LoggingAspectJ"></bean>
+    <aop:config>
+        <aop:pointcut id="loggingpointcut" expression="execution(public * com.ruiclear.springdemo.xml.HelloWorld.*(..))"></aop:pointcut>
+        <aop:aspect ref="loggingAspectJ" order="1">
+            <aop:before method="befores" pointcut-ref="loggingpointcut"></aop:before>
+            <aop:after method="after" pointcut-ref="loggingpointcut"></aop:after>
+            <aop:after-returning method="afterRunning" pointcut-ref="loggingpointcut" returning="result"></aop:after-returning>
+            <aop:after-throwing method="aferThrowing" pointcut-ref="loggingpointcut" throwing="e"></aop:after-throwing>
+        </aop:aspect>
+    </aop:config>
+</beans>
