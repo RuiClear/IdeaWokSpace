@@ -18,7 +18,7 @@ public class Test {
         DataSource dataSource =(DataSource)context.getBean("dataSource");
         System.out.println(dataSource);
         //JdbcTemplate jdbcTemplate =(JdbcTemplate)context.getBean("jdbcTemplate");
-        String sql = "select * from t_bigtype where id=?";
+        String sql = "select * from user where id=?";
 //        RowMapper<Tbigtype> rowMapper  = new BeanPropertyRowMapper<Tbigtype>(Tbigtype.class);
 //        Tbigtype tbigtype= jdbcTemplate.queryForObject(sql,rowMapper,1);
         Connection connection =dataSource.getConnection();

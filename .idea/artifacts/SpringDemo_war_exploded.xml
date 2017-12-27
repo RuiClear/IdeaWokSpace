@@ -15,11 +15,11 @@
           <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.5.4" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.13" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.13.RELEASE" />
-          <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5.2" />
-          <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.12" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.38" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.3.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.13.RELEASE" />
+          <element id="library" level="project" name="Maven: commons-dbcp:commons-dbcp:1.4" />
+          <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.5.4" />
         </element>
       </element>
       <element id="directory" name="META-INF">
