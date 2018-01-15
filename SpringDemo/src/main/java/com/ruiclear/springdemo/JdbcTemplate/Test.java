@@ -2,11 +2,11 @@ package com.ruiclear.springdemo.JdbcTemplate;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -17,16 +17,10 @@ public class Test {
         ApplicationContext  context = new ClassPathXmlApplicationContext("ApplicationContext-JdbcTemplate.xml");
         DataSource dataSource =(DataSource)context.getBean("dataSource");
         System.out.println(dataSource);
-        //JdbcTemplate jdbcTemplate =(JdbcTemplate)context.getBean("jdbcTemplate");
+        JdbcTemplate jdbcTemplate =(JdbcTemplate)context.getBean("jdbcTemplate");
         String sql = "select * from user where id=?";
-//        RowMapper<Tbigtype> rowMapper  = new BeanPropertyRowMapper<Tbigtype>(Tbigtype.class);
-//        Tbigtype tbigtype= jdbcTemplate.queryForObject(sql,rowMapper,1);
-        Connection connection =dataSource.getConnection();
-        System.out.println(connection);
-        PreparedStatement ps= connection.prepareStatement(sql);
-        ps.setInt(1,1);
-        ResultSet rs = ps.executeQuery();
-        System.out.println(rs);
-       //System.out.println(tbigtype);
+       RowMapper<User> rowMapper  = new BeanPropertyRowMapper<User>(User.class);
+      User user= jdbcTemplate.queryForObject(sql,rowMapper,1);
+        System.out.println(user);
     }
 }

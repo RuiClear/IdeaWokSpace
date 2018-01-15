@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hibernate.entity">
+    <class name="Teacher" dynamic-insert="true" table="teacher">
+        <id name="id" type="java.lang.Integer" column="id">
+            <generator class="native"></generator>
+        </id>
+        <property name="name" type="java.lang.String" column="name"></property>
+        <property name="course" type="java.lang.String" column="course"></property>
+    </class>
+</hibernate-mapping>
