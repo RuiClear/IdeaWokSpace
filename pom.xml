@@ -12,6 +12,7 @@
         <module>Struts2Demo</module>
         <module>SpringDemo</module>
         <module>HibernateDemo</module>
+        <module>SpringMVCDemo</module>
     </modules>
 
 

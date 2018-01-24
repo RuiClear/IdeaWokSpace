@@ -8,5 +8,9 @@
         </id>
         <property name="name" type="java.lang.String" column="name"></property>
         <property name="course" type="java.lang.String" column="course"></property>
+        <set name="students" table="stu_tea" inverse="true">
+            <key column="tea_id"></key>
+            <many-to-many column="stu_id" class="Student"></many-to-many>
+        </set>
     </class>
 </hibernate-mapping>

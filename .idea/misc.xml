@@ -3,6 +3,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/HibernateDemo" />
     <file type="web" url="file://$PROJECT_DIR$/SpringDemo" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVCDemo" />
     <file type="web" url="file://$PROJECT_DIR$/Struts2Demo" />
   </component>
   <component name="MavenProjectsManager">

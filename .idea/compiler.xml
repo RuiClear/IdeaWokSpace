@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="HibernateDemo" />
         <module name="SpringDemo" />
+        <module name="SpringMVCDemo" />
         <module name="Struts2Demo" />
       </profile>
     </annotationProcessing>
@@ -15,6 +16,7 @@
       <module name="HibernateDemo" target="1.5" />
       <module name="IdeaWorkSapce" target="1.5" />
       <module name="SpringDemo" target="1.5" />
+      <module name="SpringMVCDemo" target="1.5" />
       <module name="Struts2" target="1.5" />
       <module name="Struts2Demo" target="1.5" />
     </bytecodeTargetLevel>
