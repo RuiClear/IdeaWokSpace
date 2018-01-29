@@ -16,5 +16,7 @@
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="提交">
   </form>
+  <a href="/hello/1.3/ruiClear">hello</a>
+
  </body>
 </html>

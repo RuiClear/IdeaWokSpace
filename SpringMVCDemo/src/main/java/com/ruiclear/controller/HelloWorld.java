@@ -1,10 +1,7 @@
 package com.ruiclear.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by RuiClear on 2018/1/24.
@@ -20,6 +17,11 @@ public class HelloWorld {
     @RequestMapping(value = "/delete/{id}",method = RequestMethod.DELETE)
     public String delete(@PathVariable String id){
         System.out.println("Delete:"+id);
+        return "success";
+    }
+    @RequestMapping("/hello/{id}/{name}")
+    public String hello(@PathVariable Double id,@PathVariable("name") String name){
+        System.out.println("hello:"+id+","+name);
         return "success";
     }
 }

@@ -13,6 +13,7 @@
         <module>SpringDemo</module>
         <module>HibernateDemo</module>
         <module>SpringMVCDemo</module>
+        <module>SpringMVC10</module>
     </modules>
 
 
