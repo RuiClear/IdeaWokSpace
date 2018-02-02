@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Created by RuiClear on 2018/1/27.
+ * 包扫描找出指定包下所有带有Controller类
  */
 public class PackageScanUtil {
     public static  List<String> analysisAnotation(String packages){
@@ -23,6 +24,7 @@ public class PackageScanUtil {
         }
         return list;
     }
+    //找到指定包下所有类
     private static List<String> findAllClassUnderPackage(String packName){
         URL path = Thread.currentThread().getContextClassLoader().getResource(packName.replace(".","/"));
          File file = new File(path.getPath().substring(1));
@@ -34,6 +36,7 @@ public class PackageScanUtil {
          }
          return list;
     }
+    //过滤掉指定包下没带@JzController的类
     private static void findJzControllerClass(List<String> list) {
         try {
             Iterator<String> iterator = list.iterator();

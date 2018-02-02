@@ -30,7 +30,7 @@ public class MyDispatcherServlet extends HttpServlet{
 
         String url = req.getServletPath();
         RequestMappingModel model = map.get(url);
-
+        if(model==null) return;
         invokeMethod(model,getRequstParamMap(req));
 
 
@@ -39,22 +39,13 @@ public class MyDispatcherServlet extends HttpServlet{
         try {
             Object object = model.getClazz().newInstance();
             Method method = model.getMethod();
-            Object[] args = new Object[model.getParmMap().size()+model.getRestMap().size()];
+            Object[] args = new Object[model.getParmMap().size()];
             //装参数的map
             Map<String,Object> paramMap = model.getParmMap();
-            //装REST参数的map
-            Map<String,Object> restMap = model.getRestMap();
             if(paramMap.size()>0){
                 for(Map.Entry<String,Object> entry:map.entrySet()){
                     if(paramMap.containsKey(entry.getKey())){
                         args[(Integer) paramMap.get(entry.getKey())] =entry.getValue();
-                    }
-                }
-            }
-            if(restMap.size()>0){
-                for(Map.Entry<String,Object> entry:map.entrySet()){
-                    if(restMap.containsKey(entry.getKey())){
-                        args[(Integer) restMap.get(entry.getValue())] =entry.getValue();
                     }
                 }
             }

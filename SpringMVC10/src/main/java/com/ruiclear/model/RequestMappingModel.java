@@ -12,9 +12,6 @@ public class RequestMappingModel {
     private Class clazz;
     private String url;
     private Method method;
-    private Map<String,Object> restMap = new HashMap<String, Object>();
-    //REST参数的个数
-    private Integer restSize;
     private Map<String,Object> parmMap = new HashMap<String, Object>();
     private Class[] types;
 
@@ -50,28 +47,11 @@ public class RequestMappingModel {
 
     public RequestMappingModel() {
     }
-
-    public Integer getRestSize() {
-        return restSize;
-    }
-
-    public void setRestSize(Integer restSize) {
-        this.restSize = restSize;
-    }
-
     public Class[] getTypes() {
         return types;
     }
 
     public void setTypes(Class[] types) {
         this.types = types;
-    }
-
-    public Map<String, Object> getRestMap() {
-        return restMap;
-    }
-
-    public void setRestMap(Map<String, Object> restMap) {
-        this.restMap = restMap;
     }
 }

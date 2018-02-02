@@ -1,7 +1,6 @@
 package com.ruiclear.analysis;
 
 import com.ruiclear.annotation.JzParam;
-import com.ruiclear.annotation.JzPathVariable;
 import com.ruiclear.annotation.JzRequestMapping;
 import com.ruiclear.model.RequestMappingModel;
 
@@ -14,6 +13,7 @@ import java.util.Map;
 
 /**
  * Created by RuiClear on 2018/1/27.
+ * 基本思路是在系统启动时就解析注解并将所有信息装入一个Map<String,RequestMappingModel>中
  */
 public class AnnotationAnalysis {
     public static void annotationAnalysis(Map<String,RequestMappingModel> map, List<String> list){
@@ -28,6 +28,7 @@ public class AnnotationAnalysis {
             e.printStackTrace();
         }
     }
+    //url解析
     private static void urlAnalysis(Map<String,RequestMappingModel> map, Class clazz){
         String classUrl = "";
         if(clazz.isAnnotationPresent(JzRequestMapping.class)){
@@ -42,11 +43,6 @@ public class AnnotationAnalysis {
                 String methodUrl = ((JzRequestMapping)method.getAnnotation(JzRequestMapping.class)).value();
                 //过滤REST风格的URL
                 if(methodUrl.contains("{")&&methodUrl.contains("}")){
-                    int size = 0;
-                    for(char c:methodUrl.toCharArray()){
-                        if(c=='{') size++;
-                    }
-                    model.setRestSize(size);
                     methodUrl = methodUrl.substring(0,methodUrl.indexOf("{")-1);
                 }
                 String url =classUrl+methodUrl;
@@ -57,18 +53,18 @@ public class AnnotationAnalysis {
         }
 
     }
+    //参数解析
     private static void paramAnalysis(Map<String,RequestMappingModel> map, Class clazz){
         try {
             Method[] methods = clazz.getMethods();
             for (Method method : methods) {
                 if(!method.isAnnotationPresent(JzRequestMapping.class)) return;
                 for(Map.Entry<String,RequestMappingModel> entry:map.entrySet()) {
+                    //由于map中url和method已经赋值所以这里需要找到对应method方法map进行参数赋值
                     if (method.equals(entry.getValue().getMethod())) {
                         Annotation[][] paramAnnotations = method.getParameterAnnotations();
                         //装参数的map
                         Map<String, Object> paramMap = new HashMap<String, Object>();
-                        //装REST参数的map
-                        Map<String, Object> restMap = new HashMap<String, Object>();
                         //装方法参数列表类型的list
                         List<Class> paramTypeList = new ArrayList<Class>();
                         for (int i = 0; i < paramAnnotations.length; i++) {
@@ -77,14 +73,9 @@ public class AnnotationAnalysis {
                                 if (paramAnnotations[i][j] instanceof JzParam) {
                                     paramMap.put(((JzParam) paramAnnotations[i][j]).value(), i);
                                 }
-                                //解析REST风格的URL
-                                if (paramAnnotations[i][j] instanceof JzPathVariable) {
-                                    restMap.put(((JzPathVariable) paramAnnotations[i][j]).value(), i);
-                                }
                             }
                         }
                         entry.getValue().setParmMap(paramMap);
-                        entry.getValue().setRestMap(restMap);
                         entry.getValue().setTypes(method.getParameterTypes());
                     }
                 }
